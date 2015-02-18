@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <style>
+    .dependency:after {
+      content: ' \00BB';
+    }
+    .dependency:last-child:after {
+      content: '';
+    }
+    .module {
+      font-weight: bold;
+    }
+  </style>
+  <title>{{ repo }}</title>
+</head>
+<body>
+
+  <div class="container">
+    {% if results %}
+    <table class="table table-bordered table-condensed table-hover">
+    <caption>
+      <p class="lead text-center"><a href="{{ repo }}">{{ repo }}</a></p>
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Installed</th>
+        <th>Patched</th>
+        <th>Title</th>
+        <th>Vulnerable Dependency</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in results %}
+      <tr>
+        <td><a href="{{ item.module | npmjs }}" class="lead module">{{ item.module }}</a></td>
+        <td class="text-center">{{ item.version }}</td>
+        <td class="text-center">{{ item.advisory.patched_versions }}</td>
+        <td><a href="{{ item.advisory.url | nodesecurity }}">{{ item.advisory.title }}</a></td>
+        <td><ul class="list-inline small">
+          {% for dependency in item.dependencyOf %}
+          {% if not loop.first %}
+          <li class="dependency"><a href="{{ dependency | npmjs }}">{{ dependency }}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+
+    <hr />
+    <p class="text-right">Powered by <a href="https://nodesecurity.io/advisories">nodesecurity.io/advisories</a></p>
+  </div>
+
+</body>
+</html>

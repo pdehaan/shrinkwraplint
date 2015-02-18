@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <style>
+    .dependency:after {
+      content: ' \00BB';
+    }
+    .dependency:last-child:after {
+      content: '';
+    }
+    .module {
+      font-weight: bold;
+    }
+  </style>
+  <title>{{ repo }}</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Usage:</h1>
+    <ul>
+      <li>By GitHub user/repo: <a href="/repo/mozilla/fxa-content-server">/repo/{user}/{repo}</a></li>
+      <li>By URI: <a href="/uri/https://raw.githubusercontent.com/mozilla-services/FindMyDevice/dev/static/npm-shrinkwrap.json">/uri/{https://...}</a></li>
+    </ul>
+
+    <hr />
+    <p class="text-right">Powered by <a href="https://nodesecurity.io/advisories">nodesecurity.io/advisories</a></p>
+  </div>
+
+</body>
+</html>

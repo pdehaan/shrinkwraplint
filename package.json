@@ -1,0 +1,37 @@
+{
+  "name": "shrinkwraplint",
+  "description": "Checks remote npm-shrinkwrap file against nsp.",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (http://nodeexamples.com/)",
+  "bugs": "https://github.com/pdehaan/shrinkwraplint/issues",
+  "dependencies": {
+    "convict": "0.6.1",
+    "github-url-from-username-repo": "1.0.2",
+    "hapi": "8.2.0",
+    "nsp-audit-shrinkwrap": "1.0.3",
+    "nunjucks-hapi": "1.1.0",
+    "promise": "6.1.0",
+    "wreck": "5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "0.14.1",
+    "husky": "0.6.2",
+    "nsp": "1.0.0"
+  },
+  "homepage": "https://github.com/pdehaan/shrinkwraplint",
+  "keywords": [
+    "shrinkwrap",
+    "nsp"
+  ],
+  "license": "WTFPL",
+  "main": "index.js",
+  "repository": "pdehaan/shrinkwraplint",
+  "scripts": {
+    "outdated": "npm outdated --depth 0",
+    "precommit": "npm test",
+    "prestart": "npm test",
+    "shrinkwrap": "npm shrinkwrap --dev && nsp audit-shrinkwrap",
+    "start": "node index",
+    "test": "eslint ."
+  }
+}

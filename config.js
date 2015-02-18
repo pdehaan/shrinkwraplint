@@ -14,11 +14,11 @@ var conf = convict({
     default: 'development',
     env: 'NODE_ENV'
   },
-  ip: {
+  host: {
     doc: 'The IP address to bind.',
-    format: 'ipaddress',
-    default: '127.0.0.1',
-    env: 'IP_ADDRESS'
+    format: 'url',
+    default: 'localhost',
+    env: 'HOSTNAME'
   },
   port: {
     doc: 'The port to bind.',

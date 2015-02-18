@@ -21,7 +21,7 @@ env.addFilter('npmjs', function(module) {
 var server = new Hapi.Server();
 server.connection({
   host: config.get('host'),
-  port: config.get('port')
+  port: parseInt(config.get('port'), 10)
 });
 server.views({
   engines: {

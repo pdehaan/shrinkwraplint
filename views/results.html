@@ -15,11 +15,10 @@
 {% endblock %}
 
 {% block content %}
+  <p class="lead text-center"><a href="{{ repo }}">{{ repo }}</a></p>
+
   {% if results.length %}
   <table class="table table-bordered table-condensed table-hover">
-  <caption>
-    <p class="lead text-center"><a href="{{ repo }}">{{ repo }}</a></p>
-  </caption>
   <thead>
     <tr>
       <th>Name</th>
@@ -47,5 +46,7 @@
   {% endfor %}
   </tbody>
   </table>
+  {% else %}
+  <h1 class="text-center text-success">No vulnerable modules found!</h1>
   {% endif %}
 {% endblock %}
